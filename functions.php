@@ -306,3 +306,363 @@ if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 register_nav_menus( array(
     'header-right' => esc_html__( 'Header Right', 'wp-bootstrap-starter' ),
 ) );
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_6060d80188264',
+	'title' => 'Main Banner Özellikleri',
+	'fields' => array(
+		array(
+			'key' => 'field_6060d818f6f0d',
+			'label' => 'Banner Link',
+			'name' => 'banner_link',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'main-banners',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_6060dece05088',
+	'title' => 'Marka Özellikleri',
+	'fields' => array(
+		array(
+			'key' => 'field_6060dece11a91',
+			'label' => 'Marka Link',
+			'name' => 'brand_link',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'brands',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_6060daa77ac3b',
+	'title' => 'Sidebar Banner Özellikleri',
+	'fields' => array(
+		array(
+			'key' => 'field_6060daa786dbc',
+			'label' => 'Banner Link',
+			'name' => 'banner_link',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'sidebar-banners',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+endif;
+
+function cptui_register_my_cpts() {
+
+	/**
+	 * Post Type: Ana Bannerlar.
+	 */
+
+	$labels = [
+		"name" => __( "Ana Bannerlar", "trend-wp" ),
+		"singular_name" => __( "Ana Bannerlar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Ana Bannerlar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "main-banners", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "main-banners", $args );
+
+	/**
+	 * Post Type: Markalar.
+	 */
+
+	$labels = [
+		"name" => __( "Markalar", "trend-wp" ),
+		"singular_name" => __( "Markalar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Markalar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "brands", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "brands", $args );
+
+	/**
+	 * Post Type: Sidebar Bannerlar.
+	 */
+
+	$labels = [
+		"name" => __( "Sidebar Bannerlar", "trend-wp" ),
+		"singular_name" => __( "Sidebar Bannerlar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Sidebar Bannerlar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "sidebar-banners", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "sidebar-banners", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts' );
+
+
+function cptui_register_my_cpts_main_banners() {
+
+	/**
+	 * Post Type: Ana Bannerlar.
+	 */
+
+	$labels = [
+		"name" => __( "Ana Bannerlar", "trend-wp" ),
+		"singular_name" => __( "Ana Bannerlar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Ana Bannerlar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "main-banners", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "main-banners", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_main_banners' );
+
+
+function cptui_register_my_cpts_brands() {
+
+	/**
+	 * Post Type: Markalar.
+	 */
+
+	$labels = [
+		"name" => __( "Markalar", "trend-wp" ),
+		"singular_name" => __( "Markalar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Markalar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "brands", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "brands", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_brands' );
+
+
+function cptui_register_my_cpts_sidebar_banners() {
+
+	/**
+	 * Post Type: Sidebar Bannerlar.
+	 */
+
+	$labels = [
+		"name" => __( "Sidebar Bannerlar", "trend-wp" ),
+		"singular_name" => __( "Sidebar Bannerlar", "trend-wp" ),
+	];
+
+	$args = [
+		"label" => __( "Sidebar Bannerlar", "trend-wp" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "sidebar-banners", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "sidebar-banners", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_sidebar_banners' );
