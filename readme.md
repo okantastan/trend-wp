@@ -1,3 +1,3 @@
-#Trend Wp
+Trend Wp
 
 Wordpress E-Commerce Theme
